@@ -1,0 +1,95 @@
+.detail {
+  @apply inline-block flex justify-center items-center;
+  .swiper {
+    width: 500px;
+    height: 600px;
+    .swiper-container {
+      @apply inline-block;
+      width: 400px;
+      height: 100px;
+      .h2 {
+        @apply text-3xl;
+      }
+    }
+    .swiper-slide {
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+    }
+    .gallery-top {
+      @apply mt-40;
+      width: 500px;
+      height: 400px;
+
+    }
+    .gallery-thumbs {
+      @apply flex justify-between items-center;
+      height: 20%;
+      box-sizing: border-box;
+      padding: 10px 0;
+    }
+    .gallery-thumbs .swiper-slide {
+      width: 25%;
+      height: 100%;
+      opacity: 0.4;
+    }
+    .gallery-thumbs .swiper-slide-thumb-active {
+      opacity: 1;
+    }
+  }
+
+  .product-count {
+    @apply flex justify-between items-center;
+  }
+  .display-flex {
+    @apply flex;
+  }
+  .product-count .qtyminus,
+  .product-count .qtyplus {
+    width: 34px;
+    height: 34px;
+    background: #212529;
+    text-align: center;
+    font-size: 19px;
+    line-height: 36px;
+    color: #fff;
+    cursor: pointer;
+  }
+  .product-count .qtyminus {
+    border-radius: 3px 0 0 3px;
+  }
+  .product-count .qtyplus {
+    border-radius: 0 3px 3px 0;
+  }
+  .product-count .qty {
+    width: 60px;
+    text-align: center;
+  }
+  .round-black-btn {
+    border-radius: 4px;
+    background: #212529;
+    color: #fff;
+    padding: 7px 45px;
+    display: inline-block;
+    margin-top: 20px;
+    border: solid 2px #212529;
+    transition: all 0.5s ease-in-out 0s;
+  }
+  .round-black-btn:hover,
+  .round-black-btn:focus {
+    background: transparent;
+    color: #212529;
+    text-decoration: none;
+  }
+  .detail-content {
+    @apply ml-24;
+    width: 600px;
+    font-size: 2rem;
+    strong {
+
+    }
+  }
+}
+
+
+

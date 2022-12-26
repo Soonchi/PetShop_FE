@@ -1,0 +1,159 @@
+
+.header {
+  @apply shadow-xl bg-white flex justify-between items-center fixed top-0 right-0 left-0 z-50;
+  padding: 1.4rem 9%;
+  transform: translateY(-9rem);
+  &.active {
+    transform: translateY(0rem);
+    animation: fade-in 0.5s linear;
+  }
+  .logo {
+    @apply w-20 h-20;
+  }
+
+  .navbar a{
+    margin: 0 1rem;
+    font-size: 1.7rem;
+    &:hover {
+      @apply text-amber-600;
+    }
+  }
+  .is-active {
+    @apply text-amber-600;
+  }
+
+  .icons {
+    div{
+      @apply cursor-pointer;
+      font-size: 2.5rem;
+      margin-left: 1.5rem;
+      &:hover{
+        @apply text-amber-600;
+      }
+      span {
+        @apply ml-5 cursor-pointer font-bold	;
+        font-size: 2rem;
+        font-family: 'Quicksand', sans-serif ;
+      }
+    }
+
+    .login-register {
+      @apply absolute shadow-2xl top-0 right-0 z-50  w-72 h-36 bg-white flex justify-center items-center  text-3xl rounded-2xl;
+      @apply  mt-36 mr-36;
+      color: black !important;
+      ul {
+        @apply ml-10;
+        li {
+          @apply mt-5;
+        }
+      }
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+
+    .login-register{
+      ul {
+        li:hover {
+          @apply text-orange-500;
+
+        }
+      }
+    }
+
+
+
+    .functionuser {
+      @apply absolute shadow-2xl top-0 right-0 z-50  w-72 h-64 bg-white flex justify-center items-center  text-3xl rounded-2xl;
+      @apply  mt-36 mr-36;
+      color: black !important;
+      ul {
+        @apply ml-10;
+        li {
+          @apply mt-5;
+        }
+      }
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+
+    .functionuser{
+      ul {
+        li:hover {
+          @apply text-orange-500;
+
+        }
+      }
+    }
+  }
+
+
+}
+
+#menu-btn {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width:991px) {
+  html {
+    font-size: 55%;
+  }
+
+  .header {
+    padding: 2rem;
+  }
+
+}
+
+@media (max-width:768px) {
+  #menu-btn {
+    display: inline-block;
+  }
+  .header {
+
+    .navbar {
+      position: absolute;
+      top: 99%; left: 0; right: 0;
+      background: white;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      &.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        animation: fade-in 0.5s linear;
+      }
+
+    }
+    a {
+      @apply block;
+      margin: 2rem;
+      font-size: 2rem;
+    }
+  }
+}
+
+
+@media (max-width:450px) {
+  html {
+    font-size: 50%;
+  }
+
+
+
+}
+
+@keyframes fade-in {
+  0% {
+    transform: translateY(2rem);
+    opacity: 0;
+  }
+}

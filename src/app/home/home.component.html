@@ -1,0 +1,91 @@
+
+<app-header></app-header>
+
+<!--Slider-->
+<swiper  [config]="config">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img src="./assets/img/home/slider-111.jpg" alt="">
+      <div class="title-content">
+        <h1>Tất cả đam mê. </h1>
+        <h2>Tất cả vật nuôi.</h2>
+        <p>Khách hàng luôn luôn đúng.</p>
+        <p>Và nếu không, dù sao chúng tôi cũng sẽ làm cho họ hạnh phúc.</p>
+        <button class="btn">SHOP NOW</button>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <img src="./assets/img/home/slider-222.jpg" alt="">
+      <div class="title-content">
+        <h1>Cửa hàng chó tốt nhất </h1>
+        <h2>Trong thành phố của bạn </h2>
+        <p>Khách hàng luôn luôn đúng.</p>
+        <p>Và nếu không, dù sao chúng tôi cũng sẽ làm cho họ hạnh phúc.</p>
+        <button class="btn">SHOP NOW</button>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <img src="./assets/img/home/slider-333.jpg" alt="">
+      <div class="title-content">
+        <h1>Một thiên đường </h1>
+        <h2>Dành cho thú cưng</h2>
+        <p>Khách hàng luôn luôn đúng.</p>
+        <p>Và nếu không, dù sao chúng tôi cũng sẽ làm cho họ hạnh phúc.</p>
+        <button class="btn">SHOP NOW</button>
+      </div>
+    </div>
+
+
+  </div>
+  <!-- Add Pagination -->
+  <div class="swiper-pagination"></div>
+  <!-- Add Arrows -->
+
+</swiper>
+
+
+
+
+<!--Banner-->
+<div  class="image">
+  <img class="img1" src="/assets/img/home/intro.png" alt="">
+  <img class="img1" src="/assets/img/home/chocanh1.png" alt="">
+</div>
+
+<!--List dog-->
+<div class="content-product">
+    <div class="list-product">
+      <div class="list-items"  *ngFor="let item of listproduct">
+        <a href="" routerLink="/detail"><img src="{{item.img}}" alt=""></a>
+        <a href="" >{{item.name}}</a> <br>
+        <a href="">{{item.price}}</a>
+      </div>
+    </div>
+</div>
+
+<!--Banner-->
+<div  class="image">
+  <img class="img1" src="/assets/img/home/meocanh.png" alt="">
+</div>
+
+<!--List cat-->
+<div class="content-product">
+  <div class="list-product">
+    <div class="list-items"  *ngFor="let item of listproduct">
+      <a href="" routerLink="/detail"><img src="{{item.img}}" alt=""></a>
+      <a href="" >{{item.name}}</a> <br>
+      <a href="">{{item.price}}</a>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+
+
+
+
+
+
+
+

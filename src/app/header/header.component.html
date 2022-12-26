@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<header class="header">
+  <a href=""><img src="../assets/img/login/logonew-removebg-preview.png" alt="" class="logo"></a>
+  <nav class="navbar">
+    <a routerLink="/home"   routerLinkActive="is-active" >TRANG CHỦ</a>
+    <a routerLink="/dogproduct" routerLinkActive="is-active">CHÓ CẢNH</a>
+    <a routerLink="/catproduct" routerLinkActive="is-active">MÈO CẢNH</a>
+    <a routerLink="/introduce"  routerLinkActive="is-active">GIỚI THIỆU</a>
+    <a routerLink="/contact"  routerLinkActive="is-active" >LIÊN HỆ</a>
+  </nav>
+  <div class="icons" >
+    <div class="fa-solid fa-bars" id="menu-btn" ></div>
+    <div class="fa-solid fa-bag-shopping" ></div>
+    <div class="fa-solid fa-user" id="lo-re" ><span>{{username}}</span></div>
+
+    <div class="login-register">
+      <ul>
+        <li><a href="" routerLink="/login"><i class="fa-solid fa-paw mr-3"></i>Đăng nhập</a></li>
+        <li><a href="" routerLink="/register"><i class="fa-solid fa-paw mr-3"></i>Đăng ký</a></li>
+
+      </ul>
+    </div>
+
+    <div class="functionuser">
+      <ul>
+        <li><a href=""><i class="fa-solid fa-paw mr-3"></i>Giỏ hàng</a></li>
+        <li><a href=""><i class="fa-solid fa-paw mr-3"></i>Lịch sử mua</a></li>
+        <li><a href=""><i class="fa-solid fa-paw mr-3"></i>Đổi mật khẩu</a></li>
+        <li><a href="" (click)="logout()"><i class="fa-solid fa-paw mr-3"></i>Đăng xuất</a></li>
+      </ul>
+    </div>
+  </div>
+
+</header>
+
+

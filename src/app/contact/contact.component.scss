@@ -1,0 +1,116 @@
+
+.header {
+  @apply shadow-lg bg-white flex justify-between items-center fixed top-0 right-0 left-0 z-50;
+  padding: 1.4rem 9%;
+
+  .logo {
+    @apply w-20 h-20;
+  }
+
+  .navbar a{
+    margin: 0 1rem;
+    font-size: 1.7rem;
+    &:hover {
+      @apply text-amber-600;
+    }
+  }
+  .is-active {
+    @apply text-amber-600;
+
+  }
+
+  .icons div{
+    @apply cursor-pointer;
+    font-size: 2.5rem;
+    margin-left: 1.5rem;
+    &:hover{
+      @apply text-amber-600;
+    }
+
+  }
+}
+
+
+.content {
+@apply relative flex;
+.img {
+transform: translateY(30px);
+}
+    .intro-contact {
+      @apply absolute text-center justify-center right-16 mt-56 text-white;
+      font-size: 2rem;
+      width: 600px;
+      height: 600px;
+      background-color:rgba(52, 74, 95, 0.74);
+      padding:60px 30px 60px 30px;
+      img {
+        @apply w-56  inline-block;
+      }
+      .ct-contact {
+      }
+    }
+
+
+}
+
+#menu-btn {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width:991px) {
+  html {
+    font-size: 55%;
+  }
+
+  .header {
+    padding: 2rem;
+  }
+
+}
+
+@media (max-width:768px) {
+  #menu-btn {
+    display: inline-block;
+  }
+  .header {
+
+    .navbar {
+      position: absolute;
+      top: 99%; left: 0; right: 0;
+      background: white;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      &.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        animation: fade-in 0.5s linear;
+      }
+
+    }
+    a {
+      @apply block;
+      margin: 2rem;
+      font-size: 2rem;
+    }
+  }
+}
+
+
+
+@media (max-width:450px) {
+  html {
+    font-size: 50%;
+  }
+
+}
+
+
+
+

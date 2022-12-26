@@ -1,0 +1,82 @@
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<img class="wave" src="./assets/img/login/wavenew.png">
+<div class="warning">
+  <span class="fa-sharp fa-solid fa-circle-exclamation"></span>
+  <span class="">Mật khẩu không trùng khớp!</span>
+</div>
+<div class="success">
+  <span class="fa-solid fa-circle-check"></span>
+  <span class="">Đăng ký thành công!</span>
+</div>
+
+<div class="warningg">
+  <span class="fa-solid fa-triangle-exclamation"></span>
+  <span class="">Tài khoản đã tồn tại!</span>
+</div>
+
+<div class="container">
+
+  <div class="img">
+    <img src="./assets/img/login/undraw_welcome_cats_thqn.svg">
+  </div>
+
+  <div class="login-content">
+    <form [formGroup]="dataForm" (submit)="register()">
+      <img src="./assets/img/login/logonew-removebg-preview.png">
+      <h2 class="title">Đăng kí tài khoản</h2>
+      <div class="input-div pass">
+        <div class="i">
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div class="div">
+          <input type="email" formControlName="email" id="email" placeholder="Email" class="input">
+        </div>
+      </div>
+      <small *ngIf="email && email.invalid && email.touched" class="text-red-600">*Định dạng @gmail.com</small>
+
+      <div class="input-div one">
+          <div class="i">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="div">
+            <input formControlName="username" type="text" placeholder="Tên tài khoản" class="input">
+          </div>
+        </div>
+        <small *ngIf="user && user.invalid && user.touched" class="text-red-600">*Tài khoản ít nhất 3 kí tự</small>
+        <div class="input-div pass">
+          <div class="i">
+            <i class="fas fa-lock"></i>
+          </div>
+          <div class="div">
+            <input type="password" formControlName="password" id="passwordForm" placeholder="Mật khẩu" class="input">
+          </div>
+        </div>
+        <small *ngIf="password && password.invalid && password.touched" class="text-red-600">*Mật khẩu ít nhất 6 kí tự</small>
+        <div class="input-div pass">
+          <div class="i">
+            <i class="fas fa-lock"></i>
+          </div>
+          <div class="div">
+            <input type="password"  formControlName="passwordxt" id="passwordFormxt" placeholder="Nhập lại mật khẩu" class="input">
+          </div>
+        </div>
+        <small *ngIf="passwordxt && passwordxt.invalid && passwordxt.touched" class="text-red-600">*Mật khẩu ít nhất 6 kí tự</small>
+
+
+
+
+
+
+
+      <input type="submit" [disabled]="dataForm.invalid" class="btn" value="Đăng kí">
+      <div class="register">
+        <h2>Bạn đã có tài khoản?<a routerLink="/login">Đăng nhập ngay</a></h2>
+      </div>
+    </form>
+  </div>
+
+
+</div>
+

@@ -1,0 +1,35 @@
+
+.img {
+  @apply mt-24;
+}
+
+.content {
+  @apply  mt-5 flex justify-center items-center;
+  .navcontent {
+    @apply items-center text-center;
+    width: 400px;
+    .icon-inner {
+      @apply w-24 h-24 border-none inline-block;
+    }
+    h2 {
+      @apply text-4xl font-semibold mt-2 mb-2;
+    }
+
+    p {
+      @apply text-3xl leading-10;
+    }
+  }
+
+}
+
+
+@media (max-width:450px) {
+  html {
+    font-size: 50%;
+  }
+
+}
+
+
+
+

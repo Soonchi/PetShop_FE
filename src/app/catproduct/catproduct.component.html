@@ -1,0 +1,23 @@
+<app-header></app-header>
+<h2 class="h2">TRANG CHỦ / <strong>MÈO CẢNH</strong> </h2>
+<div class="container">
+  <div class="nav">
+    <h2>DANH MỤC SẢN PHẨM</h2>
+    <ul class="ul">
+      <li><a routerLink="/dogproduct" routerLinkActive="is-active">Chó cảnh</a></li>
+      <li><a routerLink="/catproduct" routerLinkActive="is-active">Mèo cảnh</a></li>
+    </ul>
+  </div>
+  <div class="content-product">
+    <div class="list-product">
+      <div class="list-items"  *ngFor="let item of listproduct">
+        <a href="" routerLink="/detail"><img src="{{item.img}}" alt=""></a>
+        <a href="" >{{item.name}}</a> <br>
+        <a href="">{{item.price}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-footer></app-footer>
