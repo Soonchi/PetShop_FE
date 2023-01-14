@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import Swiper from "swiper";
+import {Product} from "../../models/product";
+import {ProductService} from "../../service/product.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-detailproduct',
@@ -7,10 +10,16 @@ import Swiper from "swiper";
   styleUrls: ['./detailproduct.component.scss']
 })
 export class DetailproductComponent {
-  constructor() {
+  Path = "http://localhost:3000/";
+  productId: number = 0;
+    product: Product = new Product();
+  constructor(private productService: ProductService,
+              private router: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.productId = this.router.snapshot.params['productId'];
+    this.getProductById()
     const galleryThumbs = new Swiper('.gallery-thumbs', {
       spaceBetween: 10,
       slidesPerView: 3,
@@ -32,7 +41,13 @@ export class DetailproductComponent {
         swiper: galleryThumbs,
       },
     });
-
 }
+
+  getProductById() {
+    this.productService.getProductById(this.productId).subscribe(data => {
+      this.product = data;
+      console.log(this.product)
+    })
+  }
 
 }

@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'dogproduct', component: DogproductComponent},
   {path: 'catproduct', component: CatproductComponent},
-  {path: 'detailproduct', component: DetailproductComponent},
+  {path: 'detailproduct/:productId', component: DetailproductComponent},
   {path: '',pathMatch:"full", component: HomeComponent},
 ];
 

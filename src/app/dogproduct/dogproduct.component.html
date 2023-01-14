@@ -11,8 +11,8 @@
   <div class="content-product">
     <div class="list-product">
       <div class="list-items"  *ngFor="let item of listproduct">
-        <a href="" routerLink="/detail"><img src="{{item.img}}" alt=""></a>
-        <a href="" >{{item.name}}</a> <br>
+        <a href="" routerLink="/detailproduct/{{item.productId}}"><img src="{{Path + item.image}}" alt=""></a>
+        <a href="" >{{item.productName}}</a> <br>
         <a href="">{{item.price}}</a>
       </div>
     </div>
