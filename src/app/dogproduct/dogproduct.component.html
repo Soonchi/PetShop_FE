@@ -1,19 +1,16 @@
 <app-header></app-header>
-<h2 class="h2">TRANG CHỦ / <strong>CHÓ CẢNH</strong> </h2>
+<h2 class="h2">TRANG CHỦ / <strong>{{catalogName}}</strong> </h2>
 <div class="container">
-  <div class="nav">
-    <h2>DANH MỤC SẢN PHẨM</h2>
-    <ul class="ul">
-      <li><a routerLink="/dogproduct" routerLinkActive="is-active">Chó cảnh</a></li>
-      <li><a routerLink="/catproduct" routerLinkActive="is-active">Mèo cảnh</a></li>
-    </ul>
-  </div>
+ <app-view-catalog></app-view-catalog>
   <div class="content-product">
     <div class="list-product">
       <div class="list-items"  *ngFor="let item of listproduct">
-        <a href="" routerLink="/detailproduct/{{item.productId}}"><img src="{{Path + item.image}}" alt=""></a>
-        <a href="" >{{item.productName}}</a> <br>
-        <a href="">{{item.price}}</a>
+        <a routerLink="/detailproduct/{{item.productId}}">
+          <a ><img src="{{Path + item.image}}" alt=""></a>
+          <a >{{item.productName}}</a> <br>
+          <a>{{convertNumber(item.price)}} VND</a>
+        </a>
+
       </div>
     </div>
   </div>

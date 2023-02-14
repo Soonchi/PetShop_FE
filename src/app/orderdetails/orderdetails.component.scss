@@ -1,0 +1,37 @@
+
+.container {
+@apply mt-40;
+  background-color: #fef6f5;
+  .content {
+    @apply flex flex-col justify-center items-center;
+    .Address {
+      @apply p-10 bg-white mt-40 border border-gray-500;
+      width: 1100px;
+      h2 {
+        @apply text-4xl;
+      }
+      p{
+        @apply mt-7 text-2xl;
+      }
+    }
+    .orderdetail {
+      @apply bg-white border mt-3 border-gray-500;
+      width: 1100px;
+      .list-product {
+        @apply p-10 flex justify-between items-center;
+        img{
+          @apply inline-block;
+          width: 150px;
+        }
+      }
+      .price {
+        @apply p-10 flex justify-between;
+      }
+
+
+    }
+  }
+
+}
+
+

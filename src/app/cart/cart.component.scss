@@ -1,0 +1,81 @@
+.title {
+  @apply text-center mt-40 text-6xl;
+}
+.container {
+  @apply flex justify-center mt-20 ml-16;
+  width: 1450px;
+  .subnav {
+    width: 100%;
+  }
+
+  .line{
+    @apply bg-gray-700;
+    height: 300px;
+    width: 2px;
+  }
+  .Total {
+    @apply flex justify-between ml-10;
+    .total {
+      @apply h-72  rounded-xl border-gray-500 mr-24 text-3xl;
+      width: 500px;
+      p {
+        @apply pt-10 pl-5 flex justify-between;
+        span {
+          @apply mr-10;
+        }
+      }
+      div {
+        @apply bg-gray-700 h-1 mt-5;
+        width: 100%;
+      }
+    }
+
+  }
+
+}
+
+.center {
+  @apply text-center;
+}
+
+.img {
+  @apply flex text-center items-center justify-center;
+  img {
+    @apply mt-5;
+  }
+
+
+}
+
+//.inputQuantity {
+//  @apply border-2 border-gray-500 rounded-3xl w-24 pl-9;
+//
+//}
+
+
+.btn {
+  @apply w-96 border-2  relative border-black inline-block mt-4 pt-3  rounded-full cursor-pointer text-black overflow-hidden;
+  @apply relative;
+  padding: 1.3rem 2.8rem;
+  margin-top: 50px;
+  border-top-left-radius: 0;
+  font-size: 1.7rem;
+  z-index: 0;
+  margin-left: 1000px;
+
+
+  &::before {
+    @apply absolute top-0 left-0 h-full w-full bg-black;
+    content: '';
+    z-index: -1;
+    transition: .2s linear;
+    clip-path: circle(0% at 0% 5%);
+  }
+  &:hover::before {
+    clip-path: circle(100%);
+  }
+  &:hover {
+    color: white;
+  }
+}
+

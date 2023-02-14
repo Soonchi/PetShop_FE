@@ -55,10 +55,13 @@
 <!--List dog-->
 <div class="content-product">
     <div class="list-product">
-      <div class="list-items"  *ngFor="let item of listproduct">
-        <a href="" routerLink="/detail"><img src="{{item.img}}" alt=""></a>
-        <a href="" >{{item.name}}</a> <br>
-        <a href="">{{item.price}}</a>
+      <div class="list-items"  *ngFor="let item of listProductDog">
+        <a routerLink="/detailproduct/{{item.productId}}">
+          <a href="" ><img src="{{Path + item.image}}" alt=""></a>
+          <a href="" >{{item.productName}}</a> <br>
+          <a href="">{{convertNumber(item.price)}} VND</a>
+        </a>
+
       </div>
     </div>
 </div>
@@ -71,10 +74,12 @@
 <!--List cat-->
 <div class="content-product">
   <div class="list-product">
-    <div class="list-items"  *ngFor="let item of listproduct">
-      <a href="" routerLink="/detail"><img src="{{item.img}}" alt=""></a>
-      <a href="" >{{item.name}}</a> <br>
-      <a href="">{{item.price}}</a>
+    <div class="list-items"  *ngFor="let item of listProductCat">
+      <a routerLink="/detailproduct/{{item.productId}}">
+        <a href="" ><img src="{{Path + item.image}}" alt=""></a>
+        <a href="" >{{item.productName}}</a> <br>
+        <a href="">{{convertNumber(item.price)}} VND</a>
+      </a>
     </div>
   </div>
 </div>

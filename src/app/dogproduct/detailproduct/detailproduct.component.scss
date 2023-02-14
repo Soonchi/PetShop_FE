@@ -1,3 +1,23 @@
+.alert {
+  @apply p-3 h-24 text-center hidden  inline-block rounded-2xl mt-24 absolute;
+  width: 25%;
+  font-size: 1.7rem;
+  background-color:#54e37ab3;
+  transform: translateX(295%);
+  animation: fade-in 0.5 linear;
+  z-index: 1000;
+  span {
+    @apply mr-3;
+  }
+}
+
+.active {
+  animation: fade-in 0.5s linear;
+  display: block;
+}
+.swiper-wrapper {
+  @apply mt-10;
+}
 .detail {
   @apply inline-block flex justify-center items-center;
   .swiper {
@@ -62,8 +82,10 @@
     border-radius: 0 3px 3px 0;
   }
   .product-count .qty {
+    @apply border border-gray-500 rounded-2xl pl-5 border-2;
     width: 60px;
     text-align: center;
+
   }
   .round-black-btn {
     border-radius: 4px;
@@ -82,12 +104,11 @@
     text-decoration: none;
   }
   .detail-content {
-    @apply ml-24;
+    @apply ml-24 mt-20;
     width: 600px;
     font-size: 2rem;
-    strong {
 
-    }
+
   }
 }
 

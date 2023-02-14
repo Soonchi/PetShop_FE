@@ -12,8 +12,25 @@ export class UserService {
   register(user: Users) {
     return  this.httpClient.post<Users>(`${environment.api_domain}/api/registration`, user);
   }
-  login(username: string, password: string) {
-    return  this.httpClient.post<Users>(`${environment.api_domain}/api/login`, {username, password})
+  login(user: Users) {
+    return  this.httpClient.post<Users>(`${environment.api_domain}/api/login`, user)
   }
+
+  edit(id: number, data: any) {
+    return this.httpClient.post<any>(`${environment.api_domain}/api/editUser`+ id, data)
+  }
+
+  setToken(accessToken: string) {
+    localStorage.setItem("accessToken", accessToken);
+  }
+
+  getToken() {
+    localStorage.getItem("accessToken")
+  }
+
+  clear() {
+    localStorage.clear()
+  }
+
 
 }

@@ -1,0 +1,21 @@
+.nav {
+  @apply mr-10;
+  width: 300px;
+  font-size: 2rem;
+  h2 {
+    @apply shadow-md rounded-lg;
+  }
+  .ul {
+    @apply  shadow-md;
+  }
+
+  .ul li {
+    @apply shadow-md p-2 rounded-lg cursor-pointer;
+    &:hover {
+      @apply text-amber-600;
+    }
+  }
+}
+.is-active {
+  @apply text-amber-600;
+}

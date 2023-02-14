@@ -1,0 +1,90 @@
+
+
+.container {
+  @apply  mt-40 flex justify-center;
+  font-size: 2rem;
+  .form {
+    width: 700px;
+    form {
+
+      h3 {
+        @apply mt-10;
+        span {
+          @apply text-red-500;
+          font-size: 2rem;
+        }
+        strong {
+          @apply ml-3;
+        }
+      }
+      input {
+        @apply border border-gray-500 mt-5 rounded-2xl p-2;
+        width: 500px;
+      }
+    }
+
+  }
+
+  .yourOrder {
+    @apply text-center h-auto  border border-cyan-400 border-2;
+    width: 500px;
+
+    .line{
+      @apply bg-gray-700 ml-10 h-0.5 mt-5;
+      width: 450px;
+    }
+    .orderDetail {
+      @apply mt-10 ml-10 flex justify-between items-center;
+      width: 545px;
+      span {
+        @apply mr-28;
+        width: 150px;
+      }
+      .linee{
+        @apply bg-gray-700 ml-10 h-0.5;
+        width: 500px;
+      }
+    }
+    .total {
+@apply ml-10 flex justify-between items-center;
+      span {
+        @apply mr-16;
+      }
+    }
+
+    .ship {
+      @apply mt-10 ml-10 flex justify-between items-center;
+      span {
+        @apply mr-16;
+      }
+    }
+
+    .btn {
+      @apply w-96 border-2 mb-5 relative border-black inline-block mt-4 pt-3  rounded-full cursor-pointer text-black overflow-hidden;
+      @apply relative;
+      padding: 1.3rem 2.8rem;
+      margin-top: 50px;
+      border-top-left-radius: 0;
+      font-size: 1.7rem;
+      z-index: 0;
+
+
+
+      &::before {
+        @apply absolute top-0 left-0 h-full w-full bg-black;
+        content: '';
+        z-index: -1;
+        transition: .2s linear;
+        clip-path: circle(0% at 0% 5%);
+      }
+      &:hover::before {
+        clip-path: circle(100%);
+      }
+      &:hover {
+        color: white;
+      }
+    }
+
+  }
+
+}

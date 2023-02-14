@@ -1,0 +1,6 @@
+<div class="nav">
+  <h2>DANH MỤC SẢN PHẨM</h2>
+  <ul class="ul" *ngFor="let item of listcatalog">
+    <li (click)="reloadpage()"><a routerLink="/dogproduct/{{item.catalogId}}" routerLinkActive="is-active">{{item.catalogName}}</a></li>
+  </ul>
+</div>

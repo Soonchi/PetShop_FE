@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import {ProductService} from "../service/product.service";
 import {Product} from "../models/product";
+import { CatalogService } from '../service/catalog.service';
+import {Catalog} from "../models/catalog";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-dogproduct',
@@ -11,21 +14,47 @@ export class DogproductComponent {
   listproduct: Product[] = [];
 
   Path = "http://localhost:3000/";
+ searchCatalog!: Catalog;
+
+catalogName!: string
 
 
+  constructor(private productService: ProductService,
+              private catalogService: CatalogService,
+              private activeRoute: ActivatedRoute) {
+  }
 
+  catalogId: any
 
-
-  constructor(private productService: ProductService) {
+  convertNumber(s: any) {
+    if(typeof s == "number") {
+      let tmp = s.toString();
+      return tmp.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+    return s;
   }
 
   ngOnInit(): void {
-    this.getAllProduct()
+    this.activeRoute.paramMap.subscribe(data => {
+      this.catalogId = data.get('catalogId');
+      if (this.catalogId == 1) {
+        this.catalogName = "Chó Cảnh"
+      } else {
+        this.catalogName = "Mèo Cảnh"
+      }
+    })
+    this.getProductByCatalog()
+
   }
-  getAllProduct() {
-    const res = this.productService.getListProducts();
-    res.subscribe(report => this.listproduct = report as unknown as Product[])
+  getProductByCatalog() {
+    this.productService.getProductByCatalogName(this.catalogId).subscribe((data: any) => {
+      this.listproduct = data;
+    })
   }
+
+
+
+
 
 
 }

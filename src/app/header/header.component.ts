@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {UserService} from "../service/user.service";
+import {MatDialog} from "@angular/material/dialog";
+import { CatalogService } from '../service/catalog.service';
+import {Catalog} from "../models/catalog";
 
 
 @Component({
@@ -8,19 +12,24 @@ import {Router} from "@angular/router";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  username = window.localStorage.getItem('user');
-
-  constructor(private router: Router) {
+  username = window.localStorage.getItem('username');
+  listcatalog: Catalog[] = [];
+  constructor(private router: Router,
+              private userService: UserService,
+              private catalogService: CatalogService) {
   }
 
 
   ngOnInit(): void {
+    this.getAllCatalog()
 
     const navbar = document.getElementsByClassName('navbar')[0] as HTMLElement;
     const addnavbar = document.querySelectorAll('#menu-btn')[0] as HTMLElement;
     const add = document.getElementsByClassName('functionuser')[0] as HTMLElement;
     const addlore = document.getElementsByClassName('login-register')[0] as HTMLElement;
     const lore = document.getElementById("lo-re");
+
+
 
     if (this.username) {
       addlore.style.display = 'none';
@@ -60,11 +69,22 @@ export class HeaderComponent implements OnInit {
   }
 
 
+
   logout() {
-    localStorage.removeItem('user');
+    this.userService.clear();
     this.router.navigate(['home']);
   }
 
+
+
+  getAllCatalog() {
+    const res = this.catalogService.getListCatalog();
+    res.subscribe(report => this.listcatalog = report as unknown as Catalog[])
+  }
+
+  reloadpage() {
+    window.location.reload();
+  }
 }
 
 

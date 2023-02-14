@@ -1,0 +1,77 @@
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;600&display=swap" rel="stylesheet">
+<app-header></app-header>
+<div class="title">
+  <p>Giỏ Hàng</p>
+</div>
+<div class=" container">
+
+  <div class="subnav">
+
+    <table class="table" mat-table [dataSource]="cartDetails">
+
+      <ng-container class="center" matColumnDef="name">
+        <th class="center" mat-header-cell *matHeaderCellDef> Tên </th>
+        <td class="center" mat-cell *matCellDef="let element"> {{element.product.productName}} </td>
+      </ng-container>
+
+      <ng-container class="center" matColumnDef="image">
+        <th class="center" mat-header-cell *matHeaderCellDef> Ảnh </th>
+        <td class="img"  mat-cell *matCellDef="let element" > <img width="80px" src="{{Path + element.product.image}}"> </td>
+      </ng-container>
+
+      <!--    <ng-container matColumnDef="description">-->
+      <!--      <th mat-header-cell *matHeaderCellDef> Mô tả </th>-->
+      <!--      <td mat-cell *matCellDef="let element"> {{element.product.description}} </td>-->
+      <!--    </ng-container>    -->
+
+      <ng-container class="center" matColumnDef="price">
+        <th class="center" mat-header-cell *matHeaderCellDef> Giá </th>
+        <td class="center" mat-cell *matCellDef="let element"> <strong>{{convertNumber(element.product.price)}} VND</strong></td>
+      </ng-container>
+
+      <ng-container class="center" matColumnDef="quantity">
+        <th class="center" mat-header-cell *matHeaderCellDef> Số lượng </th>
+        <td class="center " mat-cell *matCellDef="let element"> x{{element.quantity}}  </td>
+      </ng-container>
+
+      <ng-container class="center price" matColumnDef="amount">
+        <th class="center" mat-header-cell *matHeaderCellDef> Tổng cộng </th>
+        <td class="center totalPrice" mat-cell *matCellDef="let element" ><strong>{{convertNumber(element.totalPrice)}} VND</strong> </td>
+      </ng-container>
+
+      <ng-container class="center" matColumnDef="action">
+        <th class="center" mat-header-cell *matHeaderCellDef> Hành Động </th>
+        <td class="center" mat-cell *matCellDef="let element">
+          <i class="fa-solid fa-trash-can cursor-pointer" (click)="deleteCart(element.cartId)"></i>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="Total" >
+    <div></div>
+
+    <div class="total" >
+      <p>Tổng cộng: <span><strong>{{convertNumber(totalPrice)}} VND</strong></span></p>
+      <p>Phí vẩn chuyển: <span>Miễn Phí</span></p>
+      <div></div>
+      <p>Tổng tiền: <span><strong>{{convertNumber(totalPrice)}} VND</strong></span></p>
+
+    </div>
+  </div>
+
+</div>
+
+
+<button class="btn" routerLink="/buyProduct">Thanh Toán</button>
+
+<app-footer></app-footer>

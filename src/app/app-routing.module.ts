@@ -7,8 +7,13 @@ import {HomeComponent} from "./home/home.component";
 import { IntroduceComponent } from './introduce/introduce.component';
 import {ContactComponent} from "./contact/contact.component";
 import {DogproductComponent} from "./dogproduct/dogproduct.component";
-import {CatproductComponent} from "./catproduct/catproduct.component";
 import {DetailproductComponent} from "./dogproduct/detailproduct/detailproduct.component";
+import {CartComponent} from "./cart/cart.component";
+import {BuyProductComponent} from "./buy-product/buy-product.component";
+import {AuthGuard} from "./auth/auth.guard";
+import {OrderdetailsComponent} from "./orderdetails/orderdetails.component";
+import { SuccessComponent } from './success/success.component';
+import { ViewCatalogComponent } from './view-catalog/view-catalog.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -17,9 +22,13 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'introduce', component: IntroduceComponent},
   {path: 'contact', component: ContactComponent},
-  {path: 'dogproduct', component: DogproductComponent},
-  {path: 'catproduct', component: CatproductComponent},
+  {path:'dogproduct/:catalogId', component: DogproductComponent},
   {path: 'detailproduct/:productId', component: DetailproductComponent},
+  {path: 'cart', component: CartComponent, canActivate:[AuthGuard]},
+  {path: 'buyProduct', component: BuyProductComponent},
+  {path: 'orderdetails', component: OrderdetailsComponent},
+  {path: 'success', component: SuccessComponent},
+  {path: 'view-catalog/:catalogId', component: ViewCatalogComponent},
   {path: '',pathMatch:"full", component: HomeComponent},
 ];
 

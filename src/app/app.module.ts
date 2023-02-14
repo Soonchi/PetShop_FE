@@ -13,13 +13,23 @@ import {FooterComponent} from "./footer/footer.component";
 import { IntroduceComponent } from './introduce/introduce.component';
 import { ContactComponent } from './contact/contact.component';
 import { DogproductComponent } from './dogproduct/dogproduct.component';
-import { CatproductComponent } from './catproduct/catproduct.component';
-import {ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 
 import { DetailproductComponent } from './dogproduct/detailproduct/detailproduct.component';
+import { CartComponent } from './cart/cart.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatTableModule} from "@angular/material/table";
+import { BuyProductComponent } from './buy-product/buy-product.component';
+import {UserService} from "./service/user.service";
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {AuthGuard} from "./auth/auth.guard";
+import {AuthInterceptor} from "./auth/auth.interceptor";
+import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
+import { SuccessComponent } from './success/success.component';
+import { ViewCatalogComponent } from './view-catalog/view-catalog.component';
 
 
 
@@ -34,21 +44,37 @@ import { DetailproductComponent } from './dogproduct/detailproduct/detailproduct
     IntroduceComponent,
     ContactComponent,
     DogproductComponent,
-    CatproductComponent,
-    DetailproductComponent
+    DetailproductComponent,
+    CartComponent,
+    BuyProductComponent,
+    OrderdetailsComponent,
+    SuccessComponent,
+    ViewCatalogComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    NgxUsefulSwiperModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    MatFormFieldModule,
-    MatInputModule
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        NgxUsefulSwiperModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatPaginatorModule,
+        MatTableModule,
+        FormsModule,
+      MatDialogModule
 
+    ],
+  providers: [
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    UserService
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

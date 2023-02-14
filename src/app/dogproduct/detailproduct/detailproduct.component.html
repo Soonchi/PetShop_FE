@@ -1,4 +1,8 @@
 <app-header></app-header>
+<div class="alert">
+  <p><strong>Hệ Thống</strong></p>
+  <p>Thêm sản phẩm thành công</p>
+</div>
 <div class="detail">
 
   <div class="swiper">
@@ -7,34 +11,29 @@
       <h2 class="h2">TRANG CHỦ / <strong>CHÓ CẢNH</strong> </h2>
       <div class="swiper-wrapper">
         <img class="swiper-slide" src="{{Path + product.image}}">
-        <img class="swiper-slide" src="/assets/img/home/choalatka.jpg">
-        <img class="swiper-slide" src="/assets/img/home/choeskimo.jpg">
       </div>
     </div>
-    <div class="swiper-container gallery-thumbs">
-      <div class="swiper-wrapper" >
-        <img class="swiper-slide" src="{{Path + product.image}}">
-        <img class="swiper-slide" src="/assets/img/home/choalatka.jpg">
-        <img class="swiper-slide" src="/assets/img/home/choeskimo.jpg">
-      </div>
-    </div>
+<!--    <div class="swiper-container gallery-thumbs">-->
+<!--      <div class="swiper-wrapper" >-->
+<!--        <img class="swiper-slide" src="{{Path + product.image}}">-->
+<!--      </div>-->
+<!--    </div>-->
 </div>
   <div class="detail-content">
     <strong>{{product.productName}}</strong>
-    <p>{{product.price}}₫</p>
+    <p><strong>{{convertNumber(product.price)}} VND</strong></p>
 
-    <p>{{product.description}}</p>
+    <p class="limit-text">{{product.description}}</p>
     <label >Số lượng</label>
     <div class="product-count">
 
-      <form action="#" class="display-flex">
-        <div class="qtyminus" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</div>
-        <input type="number" name="quantity" min="0" value="1" class="qty">
-        <div class="qtyplus" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</div>
+      <form  class="display-flex mt-7" [formGroup]="dataForm">
+        <input type="number"  formControlName="quantity"  min="0" max="10" class="qty">
       </form>
-      <a href="#" class="round-black-btn">Thêm vào giỏ hàng</a>
+      <button class="round-black-btn" (click)="addToCart(product.productId)">Thêm vào giỏ hàng</button>
     </div>
-
   </div>
+
+  <div></div>
   </div>
 <app-footer></app-footer>
