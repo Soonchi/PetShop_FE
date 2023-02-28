@@ -100,14 +100,16 @@ swiper {
 
 
   .content-product {
-    @apply flex justify-center ;
+    @apply flex justify-center items-center;
     background-color: #FCF8EE;
     .list-product {
-      @apply mt-5;
-      width: 1200px;
+      @apply mt-5 grid gap-5 grid-cols-4;
+      width: 1250px;
+      margin-left: 70px;
       .list-items {
-        @apply ml-5 mt-6   justify-center text-center inline-block;
+        @apply ml-5 mt-6 justify-center text-center inline-block;
         a {
+          @apply font-semibold;
           font-size: 1.75rem;
           img {
             @apply rounded-3xl shadow-2xl;
@@ -119,6 +121,7 @@ swiper {
           img:hover {
             transform: scale(1.1);
           }
+
 
         }
 

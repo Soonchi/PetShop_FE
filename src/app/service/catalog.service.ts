@@ -11,20 +11,10 @@ export class CatalogService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getListCatalog(): Observable<Catalog[]> {
-    return this.httpClient.get<Catalog[]>(`${environment.api_domain}/api/getAllCatalog`)
+  getListCatalog(): Observable<any[]> {
+    return this.httpClient.get<any[]>(`${environment.api_domain}/api/cate/list`)
   }
 
-  addCatalog(catalog: Catalog){
-    return this.httpClient.post<Catalog>(`${environment.api_domain}/api/addNewCatalog`, catalog)
-  }
 
-  deleteCatalog(catalogId: number) {
-    return this.httpClient.delete(`${environment.api_domain}/api/deleteCatalog/${catalogId}`)
-  }
-
-  updateCatalog(data:any, catalogId: number) {
-    return this.httpClient.put<any>(`${environment.api_domain}/api/updateCatalog/`+ catalogId, data)
-  }
 
 }

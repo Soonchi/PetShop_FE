@@ -1,39 +1,43 @@
-<app-header></app-header>
-<div class="alert">
-  <p><strong>Hệ Thống</strong></p>
-  <p>Thêm sản phẩm thành công</p>
-</div>
-<div class="detail">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;600&display=swap" rel="stylesheet">
+<div style="background-color: #fef6f5;">
+  <app-header></app-header>
+  <div class="alert">
+    <p><strong>Hệ Thống</strong></p>
+    <p>Thêm sản phẩm thành công</p>
+  </div>
+  <div class="detail">
 
-  <div class="swiper">
+    <div class="swiper">
 
-    <div class="swiper-container gallery-top">
-      <h2 class="h2">TRANG CHỦ / <strong>CHÓ CẢNH</strong> </h2>
-      <div class="swiper-wrapper">
-        <img class="swiper-slide" src="{{Path + product.image}}">
+      <div class="swiper-container gallery-top">
+        <h2 class="h2">TRANG CHỦ / <strong>CHÓ CẢNH</strong> </h2>
+        <div class="swiper-wrapper">
+          <img class="swiper-slide" src="{{Path + product.image}}">
+        </div>
+      </div>
+      <!--    <div class="swiper-container gallery-thumbs">-->
+      <!--      <div class="swiper-wrapper" >-->
+      <!--        <img class="swiper-slide" src="{{Path + product.image}}">-->
+      <!--      </div>-->
+      <!--    </div>-->
+    </div>
+    <div class="detail-content">
+      <strong>{{product.name}}</strong>
+      <p><strong>{{convertNumber(product.price)}} VND</strong></p>
+
+      <p class="limit-text">{{product.description}}</p>
+      <label >Số lượng</label>
+      <div class="product-count">
+
+        <form  class="display-flex mt-7" [formGroup]="dataForm">
+          <input type="number"  formControlName="quantity"  min="0" max="10" class="qty">
+        </form>
+        <button class="round-black-btn" (click)="addToCart(product.id)">Thêm vào giỏ hàng</button>
       </div>
     </div>
-<!--    <div class="swiper-container gallery-thumbs">-->
-<!--      <div class="swiper-wrapper" >-->
-<!--        <img class="swiper-slide" src="{{Path + product.image}}">-->
-<!--      </div>-->
-<!--    </div>-->
+
+    <div></div>
+  </div>
+  <app-footer></app-footer>
 </div>
-  <div class="detail-content">
-    <strong>{{product.productName}}</strong>
-    <p><strong>{{convertNumber(product.price)}} VND</strong></p>
 
-    <p class="limit-text">{{product.description}}</p>
-    <label >Số lượng</label>
-    <div class="product-count">
-
-      <form  class="display-flex mt-7" [formGroup]="dataForm">
-        <input type="number"  formControlName="quantity"  min="0" max="10" class="qty">
-      </form>
-      <button class="round-black-btn" (click)="addToCart(product.productId)">Thêm vào giỏ hàng</button>
-    </div>
-  </div>
-
-  <div></div>
-  </div>
-<app-footer></app-footer>

@@ -1,37 +1,44 @@
-
-.container {
-@apply mt-40;
-  background-color: #fef6f5;
-  .content {
-    @apply flex flex-col justify-center items-center;
-    .Address {
-      @apply p-10 bg-white mt-40 border border-gray-500;
-      width: 1100px;
-      h2 {
-        @apply text-4xl;
-      }
-      p{
-        @apply mt-7 text-2xl;
-      }
-    }
-    .orderdetail {
-      @apply bg-white border mt-3 border-gray-500;
-      width: 1100px;
-      .list-product {
-        @apply p-10 flex justify-between items-center;
-        img{
-          @apply inline-block;
-          width: 150px;
+.bg {
+background-color: #fef6f5;
+  .container {
+    @apply mt-40;
+    .content {
+      @apply flex flex-col justify-center items-center ;
+      .Address {
+        @apply p-10 bg-white mt-40 border border-gray-500 rounded-2xl;
+        width: 1100px;
+        h2 {
+          @apply text-4xl;
+        }
+        p{
+          @apply mt-7 text-3xl;
+        }
+        .cancel {
+          @apply w-32 h-10 rounded-2xl text-3xl text-red-500 inline-block;
+          transform: translateX(950px) translateY(-25px);
+          text-decoration: underline red;
         }
       }
-      .price {
-        @apply p-10 flex justify-between;
+      .orderdetail {
+        @apply bg-white border mt-3 border-gray-500 rounded-2xl ;
+        width: 1100px;
+        .list-product {
+          @apply p-10 flex justify-between items-center;
+          img{
+            @apply inline-block;
+            width: 150px;
+          }
+        }
+        .price {
+          @apply p-10 flex justify-between text-3xl;
+        }
+
+
       }
-
-
     }
-  }
 
+  }
 }
+
 
 

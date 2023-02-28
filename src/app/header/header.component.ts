@@ -71,15 +71,16 @@ export class HeaderComponent implements OnInit {
 
 
   logout() {
-    this.userService.clear();
+    localStorage.removeItem("username")
     this.router.navigate(['home']);
   }
 
 
 
   getAllCatalog() {
-    const res = this.catalogService.getListCatalog();
-    res.subscribe(report => this.listcatalog = report as unknown as Catalog[])
+    this.catalogService.getListCatalog().subscribe(data => {
+      this.listcatalog = data
+    })
   }
 
   reloadpage() {

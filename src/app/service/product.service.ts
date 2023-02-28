@@ -4,10 +4,8 @@ import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
 
 import {Product} from "../models/product";
-import { AddToCart } from '../models/AddToCart';
-import { Catalog } from '../models/catalog';
-
-
+import {AddToCart} from '../models/AddToCart';
+import {Catalog} from '../models/catalog';
 
 
 @Injectable({
@@ -16,34 +14,43 @@ import { Catalog } from '../models/catalog';
 export class ProductService {
 
 
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   getAllProduct(): Observable<Product> {
     return this.httpClient.get<Product>(`${environment.api_domain}/api/getAllProduct`)
   }
 
-  getProductByCatalogName(catalogId: Catalog) {
-   return this.httpClient.get(`${environment.api_domain}/api/getProductByCaTalog/`+ catalogId)
+
+  getProductByCatalogName(id: Catalog) {
+    return this.httpClient.get(`${environment.api_domain}/api/product/getProductByCaTegory/` + id)
   }
 
-  getProductById(productId: number) : Observable<Product> {
-    return this.httpClient.get<Product>(`${environment.api_domain}/api/getProductById/`+ productId)
+  getProductByCatalogDog() {
+    return this.httpClient.get(`${environment.api_domain}/api/product/getProductByCaTegory/1`)
+  }
+
+  getProductByCatalogCat() {
+    return this.httpClient.get(`${environment.api_domain}/api/product/getProductByCaTegory/2`)
+  }
+
+  getProductById(id: number): Observable<Product> {
+    return this.httpClient.get<Product>(`${environment.api_domain}/api/product/getProductById/` + id)
   }
 
 
   addToCart(addToCart: AddToCart) {
-    return this.httpClient.post<any>(`${environment.api_domain}/api/addToCart`, addToCart)
+    return this.httpClient.post<any>(`${environment.api_domain}/api/cart/add`, addToCart)
   }
 
 
   getCartDetails() {
-    return this.httpClient.get(`${environment.api_domain}/api/getCartDetails`)
+    return this.httpClient.get(`${environment.api_domain}/api/cart/getCart`)
   }
 
 
-  deleteCartDetails(cartId: any) {
-    return this.httpClient.delete(`${environment.api_domain}/api/deleteCartItem/`+cartId)
+  deleteCartDetails(productId: any) {
+    return this.httpClient.delete(`${environment.api_domain}/api/cart/delete/` + productId)
   }
 
 

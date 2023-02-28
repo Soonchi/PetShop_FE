@@ -38,19 +38,20 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-this.getAllProductDog()
-    this.getAllProductCat()
+    this.getProductByCatalogCat()
+    this.getProductByCatalogDog()
   }
 
-  getAllProductDog() {
-    this.productService.getAllProduct().subscribe((data: any) => {
+
+  getProductByCatalogDog() {
+    this.productService.getProductByCatalogDog().subscribe((data: any) => {
       this.listProductDog = data.slice(0,8)
     })
   }
-  getAllProductCat() {
-    this.productService.getAllProduct().subscribe((data: any) => {
-      this.listProductCat = data.slice(10,18)
-      console.log(this.listProductCat)
+
+  getProductByCatalogCat() {
+    this.productService.getProductByCatalogCat().subscribe((data: any) => {
+      this.listProductCat = data.slice(0,8)
     })
   }
   convertNumber(s: any) {

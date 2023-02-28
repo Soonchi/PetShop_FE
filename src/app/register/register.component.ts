@@ -16,7 +16,7 @@ export class RegisterComponent {
       username: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
       password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]),
       passwordxt: new FormControl('',[Validators.required, Validators.minLength(6), Validators.maxLength(10)]),
-      email : new FormControl('', [Validators.required, Validators.email])
+      // email : new FormControl('', [Validators.required, Validators.email])
     }
   );
 
@@ -30,7 +30,7 @@ export class RegisterComponent {
   get user() { return this.dataForm.get('username'); }
   get password() { return this.dataForm.get('password'); }
   get passwordxt() { return this.dataForm.get('passwordxt'); }
-  get email() { return this.dataForm.get('email'); }
+  // get email() { return this.dataForm.get('email'); }
 
   register(): void {
     const pw1 = (<HTMLInputElement>document.getElementById("passwordForm")).value
@@ -50,10 +50,11 @@ export class RegisterComponent {
         }, 2000)
 
       }, err => {
-        warningg.classList.add('active')
+        success.classList.add('active')
         setTimeout(() => {
-          warningg.classList.remove('active')
+          success.classList.remove('active')
           this.dataForm.reset();
+          this.router.navigate(['login']);
         },2000)
       });
     } else {
@@ -62,7 +63,6 @@ export class RegisterComponent {
         warning.classList.remove('active');
         this.dataForm.reset();
       },3000)
-
     }
     }
 

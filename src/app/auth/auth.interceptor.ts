@@ -1,12 +1,10 @@
 import {
-  HttpErrorResponse,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
   HttpRequest
 } from "@angular/common/http";
 import {catchError, finalize, Observable} from "rxjs";
-import { UserService } from "../service/user.service";
 import {Router} from "@angular/router";
 import {Injectable, Injector} from "@angular/core";
 

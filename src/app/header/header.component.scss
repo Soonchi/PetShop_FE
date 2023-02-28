@@ -1,6 +1,6 @@
 
 .header {
-  @apply shadow-xl bg-white flex justify-between items-center fixed top-0 right-0 left-0 z-50;
+  @apply shadow-xl font-semibold bg-white flex justify-between items-center fixed top-0 right-0 left-0 z-50;
   padding: 1.4rem 9%;
   //transform: translateY(-9rem);
   &.active {
@@ -78,9 +78,9 @@
       @apply  mt-36 mr-36;
       color: black !important;
       ul {
-        @apply ml-10;
+        @apply ml-10 p-5;
         li {
-          @apply mt-5;
+          @apply mt-7;
         }
       }
       display: none;

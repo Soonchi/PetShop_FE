@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ProductService} from "../service/product.service";
 import {Product} from "../models/product";
-import { CatalogService } from '../service/catalog.service';
+import {CatalogService} from '../service/catalog.service';
 import {Catalog} from "../models/catalog";
 import {ActivatedRoute} from "@angular/router";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-dogproduct',
@@ -14,9 +15,10 @@ export class DogproductComponent {
   listproduct: Product[] = [];
 
   Path = "http://localhost:3000/";
- searchCatalog!: Catalog;
-
-catalogName!: string
+  searchCatalog!: Catalog;
+  id: any
+  name!: string
+  dataForm!: FormGroup;
 
 
   constructor(private productService: ProductService,
@@ -24,10 +26,9 @@ catalogName!: string
               private activeRoute: ActivatedRoute) {
   }
 
-  catalogId: any
 
   convertNumber(s: any) {
-    if(typeof s == "number") {
+    if (typeof s == "number") {
       let tmp = s.toString();
       return tmp.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
     }
@@ -36,25 +37,34 @@ catalogName!: string
 
   ngOnInit(): void {
     this.activeRoute.paramMap.subscribe(data => {
-      this.catalogId = data.get('catalogId');
-      if (this.catalogId == 1) {
-        this.catalogName = "Chó Cảnh"
+      this.id = data.get('id');
+      if (this.id == 1) {
+        this.name = "Chó Cảnh"
       } else {
-        this.catalogName = "Mèo Cảnh"
+        this.name = "Mèo Cảnh"
       }
     })
     this.getProductByCatalog()
 
+    this.dataForm = new FormGroup(
+      {
+        name: new FormControl
+      }
+    )
+
+
   }
+
   getProductByCatalog() {
-    this.productService.getProductByCatalogName(this.catalogId).subscribe((data: any) => {
+    this.productService.getProductByCatalogName(this.id).subscribe((data: any) => {
       this.listproduct = data;
     })
   }
 
 
+  onSearch() {
 
-
+  }
 
 
 }

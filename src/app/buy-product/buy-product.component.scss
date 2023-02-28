@@ -26,7 +26,7 @@
   }
 
   .yourOrder {
-    @apply text-center h-auto  border border-cyan-400 border-2;
+    @apply text-center w-auto h-auto  border border-cyan-400 border-2;
     width: 500px;
 
     .line{

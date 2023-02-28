@@ -26,9 +26,8 @@
     <span class="ml-96 pl-5" ><strong>Tổng cộng</strong></span>
     <div class="line"></div>
     <div class="orderDetail" *ngFor="let item of cartDetails">
-      <p class="inline-block">{{item.product.productName}} x {{item.quantity}} </p>
-      <span class=" inline-block"><strong>{{convertNumber(item.totalPrice)}}</strong></span>
-
+      <p class="inline-block">{{item.product.name}} x {{item.quantity}} </p>
+      <span class=" inline-block"><strong>{{convertNumber(item.totalprice)}} VND</strong></span>
     </div>
     <div class="ship">
       <span>Phí giao hàng:</span>
@@ -37,7 +36,7 @@
     <div class="line"></div>
     <div class="total  mt-10">
       <span>Tổng Cộng: </span>
-      <span  ><strong>{{convertNumber(totalPrice)}}</strong></span>
+      <span  ><strong>{{convertNumber(totalPrice)}} VND</strong></span>
     </div>
     <button class="btn"  (click)="addToOrder()">Đặt Hàng</button>
   </div>

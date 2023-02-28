@@ -2,6 +2,9 @@
   @apply  mt-36 ml-36;
   font-size: 2.3rem;
 }
+
+
+
 .container {
   @apply flex justify-center mt-20 font-medium;
 
@@ -29,12 +32,12 @@
     @apply flex justify-center items-center;
     background-color: #FCF8EE;
     .list-product {
-      @apply text-center;
+      @apply text-center grid grid-cols-3 gap-2;
       width: 1200px;
       .list-items {
         @apply ml-6 mt-6   justify-center text-center inline-block;
         a {
-          font-size: 1.75rem;
+          font-size: 2rem;
           img {
             @apply rounded-3xl ;
             width: 280px;

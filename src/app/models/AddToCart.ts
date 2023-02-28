@@ -1,6 +1,6 @@
 import { Product } from "./product";
 
 export class AddToCart {
-  productId!: string;
+  id!: string;
   quantity!: number;
 }

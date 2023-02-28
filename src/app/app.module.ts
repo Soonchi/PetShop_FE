@@ -30,6 +30,7 @@ import {AuthInterceptor} from "./auth/auth.interceptor";
 import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
 import { SuccessComponent } from './success/success.component';
 import { ViewCatalogComponent } from './view-catalog/view-catalog.component';
+import { DialogNotificationComponent } from './dialog-notification/dialog-notification.component';
 
 
 
@@ -50,6 +51,7 @@ import { ViewCatalogComponent } from './view-catalog/view-catalog.component';
     OrderdetailsComponent,
     SuccessComponent,
     ViewCatalogComponent,
+    DialogNotificationComponent,
   ],
     imports: [
         BrowserModule,

@@ -1,45 +1,45 @@
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;600&display=swap" rel="stylesheet">
-<app-header></app-header>
-<div class="container">
-  <div class="content">
-    <div class="Address" *ngFor="let item of orderDetail">
-      <h2><strong>ĐỊA CHỈ NHẬN HÀNG</strong></h2>
-      <p>Tên người nhận: {{item.fullName}}</p>
-      <p>Địa chỉ: {{item.address}}</p>
-      <p>Ngày đặt: {{item.date | date: "dd-MM-yyyy"}}</p>
-      <p>Trạng thái: {{item.status}}</p>
-    </div>
-    <div class="orderdetail" >
-      <div class="list-product" *ngFor="let item of cartDetails">
-        <div class="flex justify-between" >
+
+<div class="bg">
+  <app-header></app-header>
+  <div class="container">
+    <div class="content" *ngFor="let item of orderDetail">
+      <div class="Address" >
+        <h2><strong>ĐỊA CHỈ NHẬN HÀNG</strong></h2>
+        <p>Tên người nhận: {{item.nameofreceiver}}</p>
+        <p>Địa chỉ: {{item.addressofrecevicer}}</p>
+        <p>Ngày đặt: {{item.orderDate | date: "dd-MM-yyyy"}}</p>
+        <p>Trạng thái: <span class="status">{{item.status}}</span></p>
+        <button class="cancel" (click)="openDialog()">Hủy</button>
+      </div>
+      <div class="orderdetail" >
+        <div class="list-product" *ngFor="let order of item.orderdetails">
+          <div class="flex justify-center">
+            <div>
+              <img src="{{Path + order.product.image}}" >
+            </div>
+            <div class="ml-5 text-3xl inline-block">
+              <p class="mt-5">{{order.product.name}}</p>
+              <p class="mt-10">x {{order.quantity}}</p>
+            </div>
+          </div>
           <div>
-            <img src="{{Path + item.product.image}}">
+            <span class="text-2xl"><strong>{{convertNumber(order.totalPrice)}} VND</strong></span>
           </div>
-          <div class="ml-5 text-2xl">
-            <p class="mt-5">{{item.product.productName}}</p>
-            <p class="mt-10">x {{item.quantity}}</p>
+
+        </div>
+        <div class="price text-2xl">
+          <div></div>
+          <div >
+            <p>Tổng tiền hàng: <strong class="pl-40">{{convertNumber(item.totalPriceOrder)}} VND</strong></p>
+            <p class="pt-10 pb-10">Phí vận chuyển: <span class="pl-60">Miễn phí</span></p>
+            <p>Thành tiền: <strong class="pl-52">{{convertNumber(item.totalPriceOrder)}} VND</strong></p>
           </div>
         </div>
-
-        <div>
-          <span class="text-2xl"><strong>{{convertNumber(item.product.price)}} VND</strong></span>
-        </div>
-
       </div>
-      <div class="price text-2xl">
-        <div></div>
-        <div *ngFor="let item of orderDetail">
-          <p>Tổng tiền hàng: <strong class="pl-40">{{convertNumber(item.amount)}} VND</strong></p>
-          <p class="pt-10 pb-10">Phí vận chuyển: <span class="pl-60">Miễn phí</span></p>
-          <p>Thành tiền: <strong class="pl-52">{{convertNumber(item.amount)}} VND</strong></p>
-        </div>
-
-      </div>
-
-
     </div>
+
   </div>
 
+  <app-footer></app-footer>
 </div>
-
-<app-footer></app-footer>

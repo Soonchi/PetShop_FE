@@ -1,7 +1,7 @@
 
 export class Product {
-  productId!: string;
- productName!: string;
+  id!: string;
+ name!: string;
   catalogName!: string;
   ageRange!: string;
   file!: File;

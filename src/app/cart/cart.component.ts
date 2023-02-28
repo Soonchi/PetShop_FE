@@ -11,7 +11,6 @@ import {ProductService} from "../service/product.service";
 export class CartComponent implements OnInit {
   displayedColumns: string[] = ['name','image', 'price', 'quantity', 'amount','action'];
 
-
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(private productService: ProductService) {
   }
@@ -19,7 +18,7 @@ export class CartComponent implements OnInit {
 
 
 
-  cartDetails: any[] = [];
+  cartDetails!: any[];
   Path = "http://localhost:3000/";
   totalPrice!: number;
 
@@ -32,8 +31,8 @@ export class CartComponent implements OnInit {
 
 
   getCartDetails() {
-    this.productService.getCartDetails().subscribe((data: any) => {
-      this.cartDetails = data
+    this.productService.getCartDetails().subscribe((data:any) => {
+      this.cartDetails = data.productCarts
     }, err => {
       console.log(err);
     })
@@ -48,8 +47,8 @@ export class CartComponent implements OnInit {
   }
 
 
-  deleteCart(cartId: any) {
-    this.productService.deleteCartDetails(cartId).subscribe((data: any) => {
+  deleteCart(productId: any) {
+    this.productService.deleteCartDetails(productId).subscribe((data: any) => {
       window.location.reload();
     },error => {
       console.log(error)
@@ -61,10 +60,9 @@ export class CartComponent implements OnInit {
   getCartTotalPrice() {
     let total: number = 0;
     this.productService.getCartDetails().subscribe((data: any) => {
-    data.forEach((item: any) => {
-      total += item.totalPrice;
+    data.productCarts.forEach((item: any) => {
+      total += item.totalprice;
       this.totalPrice = total;
-
     })
     }, err => {
       console.log(err);

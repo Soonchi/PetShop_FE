@@ -4,6 +4,8 @@ import {ProductService} from "../service/product.service";
 import {OrderService} from "../service/order.service";
 import {Order} from "../models/Order";
 import {Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
+import {SuccessComponent} from "../success/success.component";
 
 @Component({
   selector: 'app-buy-product',
@@ -13,12 +15,13 @@ import {Router} from "@angular/router";
 export class BuyProductComponent implements OnInit {
   Path = "http://localhost:3000/";
   totalPrice!: number;
-  cartDetails: any[] = [];
+  cartDetails!: any[];
   dataForm!: FormGroup;
 
 constructor(private productService: ProductService,
             private orderService: OrderService,
-            private router: Router) {}
+            private router: Router,
+            private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.getCartDetails()
@@ -43,8 +46,7 @@ constructor(private productService: ProductService,
 
   getCartDetails() {
     this.productService.getCartDetails().subscribe((data: any) => {
-      this.cartDetails = data
-      console.log(this.cartDetails)
+      this.cartDetails = data.productCarts
     }, err => {
       console.log(err);
     })
@@ -54,10 +56,9 @@ constructor(private productService: ProductService,
     let total: number = 0;
 
     this.productService.getCartDetails().subscribe((data: any) => {
-      data.forEach((item: any) => {
-        total += item.totalPrice;
+      data.productCarts.forEach((item: any) => {
+        total += item.totalprice;
         this.totalPrice = total;
-
       })
     }, err => {
       console.log(err);
@@ -66,20 +67,20 @@ constructor(private productService: ProductService,
 
   addToOrder() {
     const data: Order = {
-      fullName: this.dataForm.value.fullName,
-      contactNumber: this.dataForm.value.contactNumber,
-      address: this.dataForm.value.address,
+      nameofreceiver: this.dataForm.value.fullName,
+      numberofreceiver: this.dataForm.value.contactNumber,
+      addressofrecevicer: this.dataForm.value.address,
       amount: this.totalPrice
     }
     this.orderService.addToOrder(data).subscribe(data => {
-      // setTimeout(() => {
-      //   this.router.navigate(['/success'])
-      // }, 1500)
-      //
-      // setTimeout(() => {
-      //   this.router.navigate(['/home'])
-      // },3000)
-      console.log(data)
+      setTimeout(() => {
+        this.dialog.open(SuccessComponent)
+      }, 1500)
+      setTimeout(() => {
+        this.dialog.closeAll()
+        this.router.navigate(["/home"])
+      }, 3000)
+
 
     })
   }

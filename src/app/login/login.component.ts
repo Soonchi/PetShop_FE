@@ -49,7 +49,6 @@ export class LoginComponent implements OnInit {
           },
           error => {
             warning.classList.add('active')
-            console.log(loginForm.value)
             setTimeout(() => {
               warning.classList.remove('active');
               // this.loginForm.reset();

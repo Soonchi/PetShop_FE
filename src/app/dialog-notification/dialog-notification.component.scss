@@ -1,0 +1,39 @@
+.container {
+  @apply items-center p-5 h-auto text-3xl;
+  width: 500px;
+  h2 {
+    @apply text-amber-400 text-center;
+  }
+  p {
+    @apply mt-5;
+  }
+
+  .button {
+    @apply flex justify-between items-center mt-5;
+    .btn {
+      @apply w-72 border-2  relative border-black inline-block pt-3  rounded-full cursor-pointer text-black overflow-hidden;
+      @apply relative;
+      padding: 1.3rem 2.8rem;
+      border-top-left-radius: 0;
+      font-size: 1.7rem;
+      z-index: 0;
+
+
+      &::before {
+        @apply absolute top-0 left-0 h-full w-full bg-black;
+        content: '';
+        z-index: -1;
+        transition: .2s linear;
+        clip-path: circle(0% at 0% 5%);
+      }
+      &:hover::before {
+        clip-path: circle(100%);
+      }
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+
+}

@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {OrderService} from "../service/order.service";
 import {ProductService} from "../service/product.service";
+import {Order} from "../models/Order";
+import * as constants from "constants";
+import {UpdateStatus} from "../models/UpdateStatus";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogNotificationComponent} from "../dialog-notification/dialog-notification.component";
 
 @Component({
   selector: 'app-orderdetails',
@@ -8,12 +13,12 @@ import {ProductService} from "../service/product.service";
   styleUrls: ['./orderdetails.component.scss']
 })
 export class OrderdetailsComponent implements OnInit {
-  orderDetail: any[] = [];
-  cartDetails: any[] = [];
+  orderDetail!:  any[];
+  cartDetails!: any[];
   Path = "http://localhost:3000/";
 
   constructor(private orderService: OrderService,
-              private productService: ProductService) {}
+              private dialog: MatDialog) {}
 
 
 
@@ -27,21 +32,19 @@ export class OrderdetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOrderDetail()
-    this.getCartDetails()
+
   }
 
   getOrderDetail() {
     this.orderService.getOrderDetails().subscribe((data: any) => {
       this.orderDetail = data
-      console.log(this.orderDetail)
     })
   }
-  getCartDetails() {
-    this.productService.getCartDetails().subscribe((data: any) => {
-      this.cartDetails = data
-      console.log(this.cartDetails)
-    }, err => {
-      console.log(err);
-    })
+
+
+
+
+  openDialog() {
+    this.dialog.open(DialogNotificationComponent)
   }
 }

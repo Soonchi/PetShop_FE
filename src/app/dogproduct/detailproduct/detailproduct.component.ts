@@ -14,7 +14,7 @@ import {AddToCart} from "../../models/AddToCart";
 export class DetailproductComponent {
   Path = "http://localhost:3000/";
   cartDetails: any[] = [];
-  productId: number = 0;
+  id: number = 0;
     product: Product = new Product();
   constructor(private productService: ProductService,
               private router: ActivatedRoute,
@@ -35,14 +35,14 @@ export class DetailproductComponent {
     this.dataForm = new FormGroup({
       quantity: new FormControl(1)
     });
-    this.productId = this.router.snapshot.params['productId'];
+    this.id = this.router.snapshot.params['id'];
     this.getProductById()
 
 }
 
 
   getProductById() {
-    this.productService.getProductById(this.productId).subscribe(data => {
+    this.productService.getProductById(this.id).subscribe(data => {
       this.product = data;
       console.log(this.product)
     })
@@ -58,20 +58,24 @@ export class DetailproductComponent {
     })
   }
 
+  get() {
+    console.log(this.dataForm.value.quantity)
+  }
 
-  addToCart(productId: string) {
+
+  addToCart(id: string) {
     const data: AddToCart = {
-      productId: productId,
+      id: id,
       quantity: this.dataForm.value.quantity
     }
 
     const alert = document.getElementsByClassName('alert')[0] as HTMLElement;
-    this.productService.addToCart(data).subscribe(data => {
+    this.productService.addToCart(data).subscribe(res => {
       alert.classList.toggle('active');
-      setTimeout(() => {
-        window.location.reload();
 
-      }, 1500)
+      setTimeout(() =>{
+        alert.classList.remove('active');
+      }, 1000)
     }, err => {
       console.log(err);
     })

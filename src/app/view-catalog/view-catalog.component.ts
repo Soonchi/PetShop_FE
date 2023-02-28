@@ -22,7 +22,6 @@ export class ViewCatalogComponent implements OnInit {
   getAllCatalog() {
     this.catalogService.getListCatalog().subscribe(data => {
       this.listcatalog = data;
-      console.log(data);
     })
   }
 
